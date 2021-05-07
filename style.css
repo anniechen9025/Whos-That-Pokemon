@@ -1,14 +1,22 @@
-/* Pokémon Logo */
+/* Main page background */
+body {
+    background-image: url('./images/Background.jpeg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/* Ash & Pikachu Gif */
+
 .container {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
+    display: flex;
     justify-content: center;
 }
 
-.logo {
+.maingif {
     display: block;
-    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
     height: auto;
 }
