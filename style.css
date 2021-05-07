@@ -1,0 +1,14 @@
+/* Pokémon Logo */
+.container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    justify-content: center;
+}
+
+.logo {
+    display: block;
+    width: 50%;
+    height: auto;
+}
