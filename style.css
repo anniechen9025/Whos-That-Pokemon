@@ -52,7 +52,82 @@ button {
     justify-content: center;
 }
 
-.btn-bg.Pokemon .btn-group .ball button:hover {
-    border-color: #8c2022;
+.btn-bg.Pokemon .btn-group .ball button:hover .pokemon-ball::before {
+    transform: translate3d(0, -100%, 0);
+    transition: transform 0.25s;
+    transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
 }
 
+.btn-bg.Pokemon .btn-group .ball button:hover .pokemon-ball::after {
+    transform: translate3d(0, -100%, 0);
+    transition: transform 0.25s;
+    transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);   
+}
+
+.btn-bg.Pokemon .btn-group .ball button:hover a {
+    transition: none;
+    color: transparent;
+    z-index: 999;
+}
+
+.btn-bg.Pokemon .btn-group .ball button:hover a::before {
+    transform: translate3d(100%, 0, 0);
+}
+
+.btn-bg.Pokemon .btn-group .ball button:hover a span:first-child::before,
+.btn-bg.Pokemon .btn-group .ball button:hover a span:nth-child(2)::before {
+    transition-delay: 0.3s;
+    transform: translate3d(0, 0, 0);
+    transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.btn-bg.Pokemon .btn-group .ball button .pokemon-ball {
+    position: absolute;
+    content: 'Go!';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+}
+
+.btn-bg.Pokemon .btn-group .ball button .pokemon-ball::before,
+.btn-bg.Pokemon .btn-group .ball button .pokemon-ball::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: #ef594f;
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.25s;
+    transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.btn-bg.Pokemon .btn-group .ball button .pokemon-ball::after {
+    top: 50%;
+  background: #fff;
+}
+
+.btn-bg.Pokemon .btn-group .ball button a  {
+    color: #50514f;
+    font-weight: 600;
+    font-size: 1.5em;
+    transition: color 0.5s 0.25s;
+    overflow: hidden;
+    display: inline-block;
+    position: relative;
+    z-index: 999;
+}
+
+.btn-bg.Pokemon .btn-group .ball button a::before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 5px;
+    background: #50514f;
+    top: calc(50% - 2.5px);
+    transition: transform 0.4s cubic-bezier(0.7, 0, 0.3, 1);
+    transform: translate3d(-100%, 0, 0);
+}
