@@ -131,3 +131,79 @@ button {
     transition: transform 0.4s cubic-bezier(0.7, 0, 0.3, 1);
     transform: translate3d(-100%, 0, 0);
 }
+
+.btn-bg.Pokemon .btn-group .ball button a span {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.btn-bg.Pokemon .btn-group .ball button a span::before {
+    position: absolute;
+    content: attr(data-letters);
+    left: 0;
+    width: 100%;
+    color: #fff;
+    transition: transform 0.5s;
+}
+
+.btn-bg.Pokemon .btn-group .ball button a span:first-child::before {
+    top: 0;
+    color: #ef594f;
+    transform: translate3d(0, 100%, 0);
+}
+
+.btn-bg.Pokemon .btn-group .ball button a span:nth-child(2) {
+    top: 50%;
+}
+
+.btn-bg.Pokemon .btn-group .ball button a span:nth-child(2)::before {
+    bottom: 0;
+    transform: translate3d(0, -100%, 0);
+}
+
+.btn-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+}
+
+.btn {
+    margin: 0 30px 30px 30px;
+    display: block;
+}
+
+.btn-info {
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: 'Lato';
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    font-size: 3.5em;
+    color: #fff;
+}
+
+.btn-mention {
+    margin-bottom: 70px;
+    text-align: center;
+    font-family: 'Lato';
+    letter-spacing: 0.1em;
+    font-size: 1.1em;
+    color: #fff;
+}
+
+.btn-mention span {
+    font-size: 1.2em;
+    font-weight: 600;
+}
+  
+button a {
+      text-decoration: none;
+}
+
