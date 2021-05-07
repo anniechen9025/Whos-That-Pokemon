@@ -1,3 +1,7 @@
+/* FONTS */
+@import url("https://fonts.googleapis.com/css?family=Lato:400,100,300,700,100italic,300italic,400italic,700italic,900,900italic");
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,700");
+
 /* Main page background */
 body {
     background-image: url('./images/Background.jpeg');
@@ -7,12 +11,6 @@ body {
 }
 
 /* Ash & Pikachu Gif */
-
-.container {
-    display: flex;
-    justify-content: center;
-}
-
 .maingif {
     display: block;
     margin-left: auto;
@@ -20,3 +18,41 @@ body {
     width: 25%;
     height: auto;
 }
+
+/* Button */
+button {
+    cursor: pointer;
+    overflow: visible;
+    outline: none;
+    color: #fff;
+    position: relative;
+    letter-spacing: 0.1em;
+    font-weight: 400;
+    padding: 1rem 3rem;
+    text-transform: uppercase;
+    font-family: 'Lato';
+    font-size: 1.5em;
+}
+
+.btn-bg.Pokemon .btn-group .ball button {
+    border: 5px solid #50514f;
+    border-radius: 5px;
+    background: transparent;
+    overflow: hidden;
+    position: relative;
+}
+
+.btn-bg {
+    width: 100%;
+    height: 100vh;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-bg.Pokemon .btn-group .ball button:hover {
+    border-color: #8c2022;
+}
+
