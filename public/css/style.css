@@ -37,7 +37,7 @@ button {
 .btn-bg.Pokemon .btn-group .ball button {
     border: 5px solid #50514f;
     border-radius: 5px;
-    background: transparent;
+    background: #ef594f;
     overflow: hidden;
     position: relative;
 }
