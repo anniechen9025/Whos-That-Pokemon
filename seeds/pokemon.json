@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [
     {
         "index_number": "001",
@@ -54,3 +55,8 @@
         "generation": 1
     }
 ]
+=======
+{
+    "__comment2__": "waiting for mor info when front end given"
+}
+>>>>>>> cc3ff67ce7bb782b1d705f1f54aa8c18a400e383

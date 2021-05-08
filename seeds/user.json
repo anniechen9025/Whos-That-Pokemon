@@ -1,5 +1,6 @@
 [
     {
+<<<<<<< HEAD
       "name": "Sal",
       "email": "sal@hotmail.com",
       "password": "password12345"
@@ -12,6 +13,20 @@
     {
       "name": "Amiko",
       "email": "amiko2k20@aol.com",
+=======
+      "name": "Daniel",
+      "email": "dan@hotmail.com",
+      "password": "password12345"
+    },
+    {
+      "name": "Christine",
+      "email": "chr@gmail.com",
+      "password": "password12345"
+    },
+    {
+      "name": "Lihua",
+      "email": "lih@aol.com",
+>>>>>>> cc3ff67ce7bb782b1d705f1f54aa8c18a400e383
       "password": "password12345"
     }
   ]
