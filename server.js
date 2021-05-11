@@ -4,6 +4,9 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const helpers = require('./utils/helpers');
+// const socketIO = require('socket.io')
+const { Server } = require("socket.io");
+let socketIO;
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -37,5 +40,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
+  const server = app.listen(PORT, () => console.log('Now listening'));
+  socketIO  = new Server(server);
+  //const io = socketIO(server)
+  socketIO.on('connection', (socket) => {
+    console.log('User connected')
+  })
 });
