@@ -1,64 +1,62 @@
 const router = require('express').Router();
 const { Pokemon } = require('../../models');
 const withAuth = require('../../utils/auth');
-const pikachu = { name: 'pikachu',
-                number: 01 }
 
-router.get('/', withAuth, async (req, res) => {
-    try {
-        res.status(200).render('pokedex', {myPokemon: [ pikachu ]});
-    } catch (err) {
-        res.status(400).json(err);
-    }
+router.get('/', async (req, res) => {
+  try {
+    res.status(200).render('pokedex');
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
 
 router.get('/:id', withAuth, async (req, res) => {
-    try {
-        res.status(200).render('pokedex', {myPokemon: [ pikachu ], currentContent: pikachu});
-    } catch (err) {
-        res.status(400).json(err);
-    }
+  try {
+    res.status(200).render('main');
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
 
 router.put('/:id', withAuth, async (req, res) => {
-    try {
-        res.status(200).json(newPokemon);
-    } catch (err) {
-        res.status(400).json(err);
-    }
+  try {
+    res.status(200).json(newPokemon);
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
 
 router.post('/', withAuth, async (req, res) => {
-    try {
-        const newPokemon = await Pokemon.create({
-            ...req.body,
-            user_id: req.session.user_id,
-        });
+  try {
+    const newPokemon = await Pokemon.create({
+      ...req.body,
+      user_id: req.session.user_id,
+    });
 
-        res.status(200).json(newPokemon);
-    } catch (err) {
-        res.status(400).json(err);
-    }
+    res.status(200).json(newPokemon);
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
 
 router.delete('/:id', withAuth, async (req, res) => {
-    try {
-        const pokemonData = await Pokemon.destroy({
-            where: {
-                id: req.params.id,
-                user_id: req.session.user_id,
-            },
-        });
+  try {
+    const pokemonData = await Pokemon.destroy({
+      where: {
+        id: req.params.id,
+        user_id: req.session.user_id,
+      },
+    });
 
-        if (!pokemonData) {
-            res.status(404).json({ message: 'No project found with this id!' });
-            return;
-        }
-
-        res.status(200).json(pokemonData);
-    } catch (err) {
-        res.status(500).json(err);
+    if (!pokemonData) {
+      res.status(404).json({ message: 'No project found with this id!' });
+      return;
     }
+
+    res.status(200).json(pokemonData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 module.exports = router;
