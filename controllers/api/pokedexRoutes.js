@@ -1,10 +1,12 @@
 const router = require('express').Router();
 const { Pokemon } = require('../../models');
 const withAuth = require('../../utils/auth');
+const pikachu = { name: 'pikachu',
+                number: 01 }
 
 router.get('/', withAuth, async (req, res) => {
     try {
-        res.status(200).json(newPokemon);
+        res.status(200).render('pokedex', {myPokemon: [ pikachu ]});
     } catch (err) {
         res.status(400).json(err);
     }
@@ -12,7 +14,7 @@ router.get('/', withAuth, async (req, res) => {
 
 router.get('/:id', withAuth, async (req, res) => {
     try {
-        res.status(200).json(newPokemon);
+        res.status(200).render('pokedex', {myPokemon: [ pikachu ], currentContent: pikachu});
     } catch (err) {
         res.status(400).json(err);
     }
