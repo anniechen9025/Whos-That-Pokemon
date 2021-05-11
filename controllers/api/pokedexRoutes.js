@@ -2,9 +2,9 @@ const router = require('express').Router();
 const { Pokemon } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
-    res.status(200).render('pokedex');
+    res.status(200).json(newPokemon);
   } catch (err) {
     res.status(400).json(err);
   }
@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', withAuth, async (req, res) => {
   try {
-    res.status(200).render('main');
+    res.status(200).json(newPokemon);
   } catch (err) {
     res.status(400).json(err);
   }
