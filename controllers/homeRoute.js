@@ -1,25 +1,32 @@
-//not yet (check back when getting more info)
 const router = require('express').Router();
-const { Pokemon, User } = require('../models');
 
 router.get('/', async (req, res) => {
   try {
-    res.render('homepage', {
-      loggedIn: req.session.loggedIn,
-    });
+    res.status(200).render('homepage');
   } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
+    res.status(400).json(err);
   }
 });
 
-router.get('/login', (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect('/');
-    return;
+router.get('/login', async (req, res) => {
+  try {
+    if (req.session.loggedIn) {
+      res.redirect('/');
+      return;
+    }
+    res.status(200).render('login');
+  } catch (err) {
+    res.status(400).json(err);
   }
+});
 
-  res.render('login');
+router.get('/pokedex', async (req, res) => {
+  try {
+    //move fetch for pokeapi here here??
+    res.status(200).render('pokedex');
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
 
 module.exports = router;
