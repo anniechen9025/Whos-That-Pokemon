@@ -1,14 +1,35 @@
-<main id="main-holder">
-    <h1 id="login-header">Login</h1>
-    
-    <div id="login-error-msg-holder">
-      <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
+  <div class="container">
+    <!--Data or Content-->
+    <div class="box-1">
+        <div class="content-holder">
+            <img src="/images/Oak.png" class="oak" />
+            <p>My name is Oak! This world is inhabited by creatures called Pokémon!  </p>
+            <button class="button-1" onclick="signup()">Sign up</button>
+            <button class="button-2" id="login-form-submit" onclick="login()">Login</button>
+        </div>
     </div>
+
     
-    <form id="login-form">
-      <input type="text" name="username" id="username-field" class="login-form-field" placeholder="Username">
-      <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
-      <input type="submit" value="Login" id="login-form-submit">
-    </form>
-  
-  </main>
+    <!--Forms-->
+    <div class="box-2">
+        <div class="login-form-container">
+            <h1>Welcome Back Trainer!</h1>
+            <input type="text" placeholder="Username" class="input-field">
+            <br><br>
+            <input type="password" placeholder="Password" class="input-field">
+            <br><br>
+            <button class="login-button" type="button">Login</button>
+        </div>
+
+
+<!--Create Container for Signup form-->
+    <div class="signup-form-container">
+        <h1>Create Your Pokédex</h1>
+        <input type="text" placeholder="Username" class="input-field">
+        <br><br>
+        <input type="password" placeholder="Password" class="input-field">
+        <br><br>
+        <button class="signup-button" type="button">Sign Up</button>
+    </div>
+
+    </div>
