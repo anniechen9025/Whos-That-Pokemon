@@ -1,3 +1,4 @@
+var socket = io();
 // DOM Objects
 const mainScreen = document.querySelector('.main-screen');
 const pokeName = document.querySelector('.poke-name');

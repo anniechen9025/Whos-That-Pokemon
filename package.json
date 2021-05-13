@@ -30,6 +30,7 @@
     "express-session": "^1.17.1",
     "mysql2": "^2.2.5",
     "prettier": "^2.2.1",
-    "sequelize": "^6.6.2"
+    "sequelize": "^6.6.2",
+    "socket.io": "^4.1.1"
   }
 }
