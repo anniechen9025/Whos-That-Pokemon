@@ -15,14 +15,15 @@ const loginFormHandler = async (event) => {
             body: JSON.stringify({ username, password }),
             headers: { 'Content-Type': 'application/json' },
         });
+        // document.location.replace('/');
 
-        if (response.ok) {
-            // Christine, Lihua Please update the html page name
-            // document.location.replace('/profile');
-        } else {
-            alert(response.statusText);
-        }
+        // if (response.ok) {
+        //     document.location.replace('/homepage');
+        // } else {
+        //     alert(response.statusText);
+        // }
     }
+    document.location.replace('/pokedex');
 };
 
 //need to target the signup page
@@ -40,7 +41,7 @@ const signupFormHandler = async (event) => {
         });
 
         if (response.ok) {
-            // document.location.replace('/profile');
+            // document.location.replace('/homepage');
         } else {
             alert(response.statusText);
         }
@@ -55,11 +56,10 @@ loginButton.addEventListener("click", (e) => {
     const username = loginForm.username.value;
     const password = loginForm.password.value;
 
-    if (username === "user" && password === "web_dev") {
+    if (username && password ) {
         // If the credentials are valid, show an alert box and reload the page
-        loginFormHandler();
+        loginFormHandler(e);
         alert("You have successfully logged in.");
-        location.reload();
     } else {
         // Otherwise, make the login error message show (change its oppacity)
         loginErrorMsg.style.opacity = 1;
