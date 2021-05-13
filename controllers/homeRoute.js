@@ -10,6 +10,10 @@ router.get('/', async (req, res) => {
 
 router.get('/login', async (req, res) => {
   try {
+    if (req.session.loggedIn) {
+      res.redirect('/');
+      return;
+    }
     res.status(200).render('login');
   } catch (err) {
     res.status(400).json(err);
