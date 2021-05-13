@@ -18,7 +18,7 @@ const loginFormHandler = async (event) => {
 
         if (response.ok) {
             // Christine, Lihua Please update the html page name
-            document.location.replace('/profile');
+            // document.location.replace('/profile');
         } else {
             alert(response.statusText);
         }
@@ -35,12 +35,12 @@ const signupFormHandler = async (event) => {
     if (name && password) {
         const response = await fetch('/api/users', {
             method: 'POST',
-            body: JSON.stringify({ name, email, password }),
+            body: JSON.stringify({ name, password }),
             headers: { 'Content-Type': 'application/json' },
         });
 
         if (response.ok) {
-            document.location.replace('/profile');
+            // document.location.replace('/profile');
         } else {
             alert(response.statusText);
         }
