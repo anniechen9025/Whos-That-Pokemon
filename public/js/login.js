@@ -15,7 +15,7 @@ const loginFormHandler = async (event) => {
             body: JSON.stringify({ username, password }),
             headers: { 'Content-Type': 'application/json' },
         });
-        // document.location.replace('/');
+        document.location.replace('/');
 
         // if (response.ok) {
         //     document.location.replace('/homepage');
@@ -23,7 +23,6 @@ const loginFormHandler = async (event) => {
         //     alert(response.statusText);
         // }
     }
-    document.location.replace('/pokedex');
 };
 
 //need to target the signup page
