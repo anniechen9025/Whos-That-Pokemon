@@ -1,28 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign-Up/Login Form</title>
-    <link rel="stylesheet" href="../public/css/signup-login.css">
-
-</head>
-<body>
-
-  <div class="container">
-    <!--Data or Content-->
-    <div class="box-1">
-        <div class="content-holder">
+<div class="loginBackground center">
+  <div class="gameContainer">
     <header>
       <div class= "large-font">Guess That Pokemon!</div>
-      <button class="start-button">Start</button>
     </header>
 
     <main>
       <section>
         <div class="card word-guess">
+          <div class="pokemonPic"></div>
           <div class="large-font word-blanks">_ _ _ _ _ _ _</div>
         </div>
+        <button class="start-button">Start</button>
       </section>
 
       <section>
@@ -32,7 +20,6 @@
           <h2>Pokemon Caught: <span class="win">0 </span> </h2>
           <h2>Losses: <span class="lose">0</span></h2>
         </div>
-          <button class="reset-button">Reset Score</button>
       </div>
           <div class= "card timer">
             <div class = "timer-text">
@@ -43,9 +30,11 @@
           </div>
         </div>
       </section>
+      <p><a href="/menu">Return to Menu</a></p>
     </main>
 
 
-    <script src="../public/js/game.js"></script>
-  </body>
-</html>
+    <script src="/js/game.js"></script>
+
+  </div>
+</div>
