@@ -11,6 +11,7 @@ let loseCounter = 0;
 let isWin = false;
 let timer;
 let timerCount;
+let pokemonList = [];
 
 // Arrays used to create blanks and letters on screen
 let lettersInChosenWord = [];
@@ -43,9 +44,24 @@ function startGame() {
   startTimer();
 }
 
+// function to post Pokemon to DB
+const getPokemon = async (event) => {
+  event.preventDefault();
+  const index_number = 0;
+  const pokemon_name = 0;
+
+  if (index_number && pokemon_name) {
+    const response = await fetch('/api/pokedex/', {
+      method: 'POST',
+      body: JSON.stringify({ index_number, pokemon_name }),
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+};
+
 // The winGame function is called when the win condition is met
 function winGame() {
-  wordBlank.textContent = 'YOU COUGHT THE POKEMON';
+  wordBlank.textContent = 'YOU CAUGHT THE POKEMON';
   winCounter++;
   startButton.disabled = false;
   setWins();
