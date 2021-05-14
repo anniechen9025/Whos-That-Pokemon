@@ -45,5 +45,20 @@ sequelize.sync({ force: false }).then(() => {
   //const io = socketIO(server)
   io.on('connection', (socket) => {
     console.log('User connected')
+
+    socket.on('chat message', (data)=>{
+      console.log(data);
+    })
+
+    io.emit('some event', { someProperty: 'some value', otherProperty: 'other value' });
+
+    io.on('connection', (socket) => {
+      socket.broadcast.emit('hi');
+    });
+
+
+    socket.on('disconnect', () => {
+      console.log('User disconnected');
+    });
   })
 });

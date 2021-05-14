@@ -40,4 +40,13 @@ router.get('/pokedex', async (req, res) => {
   }
 });
 
+router.get('/chatbox', async (req, res) => {
+  try {
+    //move fetch for pokeapi here here??
+    res.status(200).render('chatbox');
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 module.exports = router;
