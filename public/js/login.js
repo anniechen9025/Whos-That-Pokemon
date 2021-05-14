@@ -23,7 +23,7 @@ const loginFormHandler = async (event) => {
     //     alert(response.statusText);
     // }
   }
-  document.location.replace('/pokedex');
+  document.location.replace('/menu');
 };
 
 //need to target the signup page
@@ -41,7 +41,7 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      // document.location.replace('/homepage');
+      //document.location.replace('/homepage');
     } else {
       alert(response.statusText);
     }

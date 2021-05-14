@@ -12,30 +12,25 @@ let loseCounter = 0;
 let isWin = false;
 let timer;
 let timerCount;
-let pokemonList = [];
 
 // Arrays used to create blanks and letters on screen
 let lettersInChosenWord = [];
 let blanksLetters = [];
 
 // Array of words the user will guess
-var words = [
-  'variable',
-  'array',
-  'modulus',
-  'object',
-  'function',
-  'string',
-  'boolean',
-];
+const pokemonList = [];
 
 // fetching 3rd party API
 const fetchPokeList = (url) => {
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
-      console.log(data.results);
-      //for (let i = 0, i < data.results.length, i++)
+      for (let i = 0; i < data.pokemon_species.length; i++) {
+        console.log(data);
+        let pokemonName = data.pokemon_species[i].name;
+        pokemonList.push(pokemonName);
+      }
+      console.log(pokemonList);
       const { results, previous, next } = data;
       prevUrl = previous;
       nextUrl = next;
@@ -43,7 +38,7 @@ const fetchPokeList = (url) => {
       for (let i = 0; i < pokeListItems.length; i++) {
         const pokeListItem = pokeListItems[i];
         const resultData = results[i];
-        console.log(resultData);
+        console.log(resultData[2]);
 
         if (resultData) {
           const { name, url } = resultData;
@@ -60,7 +55,7 @@ const fetchPokeList = (url) => {
 };
 
 //fetch URL
-fetchPokeList('https://pokeapi.co/api/v2/pokemon?offset=0&limit=20');
+fetchPokeList('https://pokeapi.co/api/v2/generation/1');
 
 // The init function is called when the page loads
 function init() {
@@ -71,7 +66,7 @@ function init() {
 // The startGame function is called when the start button is clicked
 function startGame() {
   isWin = false;
-  timerCount = 10;
+  timerCount = 30;
   // Prevents start button from being clicked when round is in progress
   startButton.disabled = true;
   renderBlanks();
@@ -135,7 +130,7 @@ function startTimer() {
 // Creates blanks on screen
 function renderBlanks() {
   // Randomly picks word from words array
-  chosenWord = words[Math.floor(Math.random() * words.length)];
+  chosenWord = pokemonList[Math.floor(Math.random() * pokemonList.length)];
   lettersInChosenWord = chosenWord.split('');
   numBlanks = lettersInChosenWord.length;
   blanksLetters = [];
