@@ -3,6 +3,7 @@ const win = document.querySelector('.win');
 const lose = document.querySelector('.lose');
 const timerElement = document.querySelector('.timer-count');
 const startButton = document.querySelector('.start-button');
+const pokeListItems = document.querySelectorAll('.list-item');
 
 let chosenWord = '';
 let numBlanks = 0;
@@ -27,6 +28,39 @@ var words = [
   'string',
   'boolean',
 ];
+
+// fetching 3rd party API
+const fetchPokeList = (url) => {
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data.results);
+      //for (let i = 0, i < data.results.length, i++)
+      const { results, previous, next } = data;
+      prevUrl = previous;
+      nextUrl = next;
+
+      for (let i = 0; i < pokeListItems.length; i++) {
+        const pokeListItem = pokeListItems[i];
+        const resultData = results[i];
+        console.log(resultData);
+
+        if (resultData) {
+          const { name, url } = resultData;
+          const urlArray = url.split('/');
+          console.log(urlArray);
+          const id = urlArray[urlArray.length - 2];
+          console.log(id);
+          pokeListItem.textContent = id + '. ' + capitalize(name);
+        } else {
+          pokeListItem.textContent = '';
+        }
+      }
+    });
+};
+
+//fetch URL
+fetchPokeList('https://pokeapi.co/api/v2/pokemon?offset=0&limit=20');
 
 // The init function is called when the page loads
 function init() {
