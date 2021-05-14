@@ -3,6 +3,7 @@ const win = document.querySelector('.win');
 const lose = document.querySelector('.lose');
 const timerElement = document.querySelector('.timer-count');
 const startButton = document.querySelector('.start-button');
+const pokeListItems = document.querySelectorAll('.list-item');
 
 let chosenWord = '';
 let numBlanks = 0;
@@ -11,6 +12,7 @@ let loseCounter = 0;
 let isWin = false;
 let timer;
 let timerCount;
+let pokemonList = [];
 
 // Arrays used to create blanks and letters on screen
 let lettersInChosenWord = [];
@@ -26,6 +28,39 @@ var words = [
   'string',
   'boolean',
 ];
+
+// fetching 3rd party API
+const fetchPokeList = (url) => {
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data.results);
+      //for (let i = 0, i < data.results.length, i++)
+      const { results, previous, next } = data;
+      prevUrl = previous;
+      nextUrl = next;
+
+      for (let i = 0; i < pokeListItems.length; i++) {
+        const pokeListItem = pokeListItems[i];
+        const resultData = results[i];
+        console.log(resultData);
+
+        if (resultData) {
+          const { name, url } = resultData;
+          const urlArray = url.split('/');
+          console.log(urlArray);
+          const id = urlArray[urlArray.length - 2];
+          console.log(id);
+          pokeListItem.textContent = id + '. ' + capitalize(name);
+        } else {
+          pokeListItem.textContent = '';
+        }
+      }
+    });
+};
+
+//fetch URL
+fetchPokeList('https://pokeapi.co/api/v2/pokemon?offset=0&limit=20');
 
 // The init function is called when the page loads
 function init() {
@@ -43,9 +78,24 @@ function startGame() {
   startTimer();
 }
 
+// function to post Pokemon to DB
+const getPokemon = async (event) => {
+  event.preventDefault();
+  const index_number = 0;
+  const pokemon_name = 0;
+
+  if (index_number && pokemon_name) {
+    const response = await fetch('/api/pokedex/', {
+      method: 'POST',
+      body: JSON.stringify({ index_number, pokemon_name }),
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+};
+
 // The winGame function is called when the win condition is met
 function winGame() {
-  wordBlank.textContent = 'YOU COUGHT THE POKEMON';
+  wordBlank.textContent = 'YOU CAUGHT THE POKEMON';
   winCounter++;
   startButton.disabled = false;
   setWins();

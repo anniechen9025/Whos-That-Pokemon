@@ -29,6 +29,15 @@ router.get('/pokedex', async (req, res) => {
   }
 });
 
+router.get('/menu', async (req, res) => {
+  try {
+    //move fetch for pokeapi here here??
+    res.status(200).render('menu');
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 router.get('/chatbox', async (req, res) => {
   try {
     //move fetch for pokeapi here here??
