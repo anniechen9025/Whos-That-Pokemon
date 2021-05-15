@@ -19,6 +19,8 @@ let blanksLetters = [];
 
 // Array of words the user will guess
 const pokemonList = [];
+// Array for list of pokemon User has guessed correctly
+const caughtPokemon = [];
 
 // fetching 3rd party API
 const fetchPokeList = (url) => {
@@ -60,7 +62,6 @@ fetchPokeList('https://pokeapi.co/api/v2/generation/1');
 // The init function is called when the page loads
 function init() {
   getWins();
-  getlosses();
 }
 
 // The startGame function is called when the start button is clicked
@@ -73,8 +74,8 @@ function startGame() {
   startTimer();
 }
 
-// function to post Pokemon to DB
-const getPokemon = async (event) => {
+// function to post caughtPokemon to DB
+const updatePokemon = async (event) => {
   event.preventDefault();
   const index_number = 0;
   const pokemon_name = 0;
@@ -99,9 +100,7 @@ function winGame() {
 // The loseGame function is called when timer reaches 0
 function loseGame() {
   wordBlank.textContent = 'THE POKEMON GOT AWAY --- GAME OVER';
-  loseCounter++;
   startButton.disabled = false;
-  setLosses();
 }
 
 // The setTimer function starts and stops the timer and triggers winGame() and loseGame()
@@ -146,12 +145,8 @@ function renderBlanks() {
 function setWins() {
   win.textContent = winCounter;
   localStorage.setItem('winCount', winCounter);
-}
-
-// Updates lose count on screen and sets lose count to client storage
-function setLosses() {
-  lose.textContent = loseCounter;
-  localStorage.setItem('loseCount', loseCounter);
+  caughtPokemon.push(chosenWord);
+  console.log(caughtPokemon);
 }
 
 // These functions are used by init
@@ -167,16 +162,6 @@ function getWins() {
   }
   //Render win count to page
   win.textContent = winCounter;
-}
-
-function getlosses() {
-  var storedLosses = localStorage.getItem('loseCount');
-  if (storedLosses === null) {
-    loseCounter = 0;
-  } else {
-    loseCounter = storedLosses;
-  }
-  lose.textContent = loseCounter;
 }
 
 function checkWin() {
@@ -234,12 +219,8 @@ init();
 var resetButton = document.querySelector('.reset-button');
 
 function resetGame() {
-  // Resets win and loss counts
+  // Resets win counts
   winCounter = 0;
-  loseCounter = 0;
   // Renders win and loss counts and sets them into client storage
   setWins();
-  setLosses();
 }
-// Attaches event listener to button
-resetButton.addEventListener('click', resetGame);
