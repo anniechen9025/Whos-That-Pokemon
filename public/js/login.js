@@ -17,11 +17,11 @@ const loginFormHandler = async (event) => {
     });
     // document.location.replace('/');
 
-    // if (response.ok) {
-    //     document.location.replace('/homepage');
-    // } else {
-    //     alert(response.statusText);
-    // }
+    if (response.ok) {
+        document.location.replace('/homepage');
+    } else {
+        alert(response.statusText);
+    }
   }
   document.location.replace('/menu');
 };
