@@ -53,12 +53,6 @@ sequelize.sync({ force: false }).then(() => {
       io.emit('chat message', data);
     })
 
-
-    io.on('connection', (socket) => {
-      socket.broadcast.emit('hi');
-    });
-
-
     socket.on('disconnect', () => {
       console.log('User disconnected');
     });
