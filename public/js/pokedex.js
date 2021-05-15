@@ -17,6 +17,7 @@ var form = document.getElementById('form');
 var input = document.getElementById('input');
 // fetch user name when going to the main page, but append it after the message gets return 
 
+
 form.addEventListener('submit', function (e) {
   e.preventDefault();
   if (input.value) {
@@ -26,6 +27,7 @@ form.addEventListener('submit', function (e) {
   }
 });
 
+
 socket.on('chat message', function (msg) {
   var item = document.createElement('li');
   item.textContent = msg;
@@ -33,20 +35,29 @@ socket.on('chat message', function (msg) {
   window.scrollTo(0, document.body.scrollHeight);
 });
 
-
-
 // constants and variables
 const TYPES = [
-  'normal', 'fighting', 'flying',
-  'poison', 'ground', 'rock',
-  'bug', 'ghost', 'steel',
-  'fire', 'water', 'grass',
-  'electric', 'psychic', 'ice',
-  'dragon', 'dark', 'fairy'
+  'normal',
+  'fighting',
+  'flying',
+  'poison',
+  'ground',
+  'rock',
+  'bug',
+  'ghost',
+  'steel',
+  'fire',
+  'water',
+  'grass',
+  'electric',
+  'psychic',
+  'ice',
+  'dragon',
+  'dark',
+  'fairy',
 ];
 let prevUrl = null;
 let nextUrl = null;
-
 
 // Functions
 const capitalize = (str) => str[0].toUpperCase() + str.substr(1);
@@ -58,10 +69,11 @@ const resetScreen = () => {
   }
 };
 
-const fetchPokeList = url => {
+const fetchPokeList = (url) => {
   fetch(url)
-    .then(res => res.json())
-    .then(data => {
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
       const { results, previous, next } = data;
       prevUrl = previous;
       nextUrl = next;
@@ -82,10 +94,10 @@ const fetchPokeList = url => {
     });
 };
 
-const fetchPokeData = id => {
+const fetchPokeData = (id) => {
   fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
-    .then(res => res.json())
-    .then(data => {
+    .then((res) => res.json())
+    .then((data) => {
       resetScreen();
 
       const dataTypes = data['types'];
@@ -132,14 +144,12 @@ const handleListItemClick = (e) => {
   fetchPokeData(id);
 };
 
-
 // adding event listeners
 leftButton.addEventListener('click', handleLeftButtonClick);
 rightButton.addEventListener('click', handleRightButtonClick);
 for (const pokeListItem of pokeListItems) {
   pokeListItem.addEventListener('click', handleListItemClick);
 }
-
 
 // initialize App
 fetchPokeList('https://pokeapi.co/api/v2/pokemon?offset=0&limit=20');
