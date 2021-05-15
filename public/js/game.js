@@ -75,6 +75,7 @@ function startGame() {
 }
 
 // function to post caughtPokemon to DB
+<<<<<<< HEAD
 const updatePokemon = async (pokemon_name) => {
   if (pokemon_name) {
     console.log(pokemon_name);
@@ -84,6 +85,28 @@ const updatePokemon = async (pokemon_name) => {
       headers: { 'Content-Type': 'application/json' },
     });
   }
+=======
+const updatePokemon = async (event) => {
+  event.preventDefault();
+  
+  const response = await fetch('/api/pokedex/', {
+    method: 'POST',
+    body: JSON.stringify(pokemonList),
+    headers: { 'Content-Type': 'application/json' },
+  });
+
+};
+
+const getPokemonList = async (event) => {
+  event.preventDefault();
+
+  const response = await fetch('/api/pokedex/', {
+    method: 'GET',
+    body: JSON.stringify(pokemonList),
+    headers: { 'Content-Type': 'application/json' },
+  });
+
+>>>>>>> c6856f5f04a9f6e642eb74fced5508763952bc07
 };
 
 // The winGame function is called when the win condition is met

@@ -17,12 +17,19 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
+<<<<<<< HEAD
       document.location.replace('/menu');
     } else {
       alert(response.statusText);
     }
     console.log(response);
     //document.location.replace('/menu');
+=======
+        document.location.replace('/menu');
+    } else {
+        alert(response.statusText);
+    }
+>>>>>>> c6856f5f04a9f6e642eb74fced5508763952bc07
   }
 };
 
@@ -40,11 +47,14 @@ const signupFormHandler = async (event) => {
       headers: { 'Content-Type': 'application/json' },
     });
 
-    if (response.ok) {
-      //document.location.replace('/homepage');
-    } else {
-      alert(response.statusText);
-    }
+    console.log(response.ok);
+    document.location.replace('/menu');
+
+    // if (response.ok) {
+    //   document.location.replace('/menu');
+    // } else {
+    //   alert(response.statusText);
+    // }
   }
 };
 

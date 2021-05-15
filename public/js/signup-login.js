@@ -16,4 +16,4 @@ function login()
     document.querySelector(".button-2").style.cssText = "display: none";
     document.querySelector(".button-1").style.cssText = "display: block";
 
-}
+};

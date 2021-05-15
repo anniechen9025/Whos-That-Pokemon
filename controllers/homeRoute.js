@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
@@ -20,6 +21,14 @@ router.get('/login', async (req, res) => {
   }
 });
 
+router.get('/update', async (req, res) => {
+  try {
+    res.status(200).render('update');
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 router.get('/game', async (req, res) => {
   try {
     res.status(200).render('game');
@@ -28,25 +37,23 @@ router.get('/game', async (req, res) => {
   }
 });
 
-router.get('/pokedex', async (req, res) => {
+router.get('/pokedex', withAuth, async (req, res) => {
   try {
-    //move fetch for pokeapi here here??
     res.status(200).render('pokedex');
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
-router.get('/scores', async (req, res) => {
+router.get('/scores', withAuth, async (req, res) => {
   try {
-    //move fetch for pokeapi here here??
     res.status(200).render('scores');
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
-router.get('/menu', async (req, res) => {
+router.get('/menu', withAuth, async (req, res) => {
   try {
     res.status(200).render('menu');
   } catch (err) {
@@ -54,7 +61,7 @@ router.get('/menu', async (req, res) => {
   }
 });
 
-router.get('/chatbox', async (req, res) => {
+router.get('/chatbox', withAuth, async (req, res) => {
   try {
     //move fetch for pokeapi here here??
     res.status(200).render('chatbox');

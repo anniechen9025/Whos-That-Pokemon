@@ -15,21 +15,25 @@ const rightButton = document.querySelector('.right-button');
 var messages = document.getElementById('messages');
 var form = document.getElementById('form');
 var input = document.getElementById('input');
+// fetch user name when going to the main page, but append it after the message gets return 
 
-//form.addEventListener('submit', function (e) {
-// e.preventDefault();
-// if (input.value) {
-//   socket.emit('chat message', input.value);
-//   input.value = '';
-// }
-//});
 
-// socket.on('chat message', function (msg) {
-//   var item = document.createElement('li');
-//   item.textContent = msg;
-//   messages.appendChild(item);
-//   window.scrollTo(0, document.body.scrollHeight);
-// });
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  if (input.value) {
+    // Sends message (if message exists) to the server
+    socket.emit('chat message', input.value);
+    input.value = '';
+  }
+});
+
+
+socket.on('chat message', function (msg) {
+  var item = document.createElement('li');
+  item.textContent = msg;
+  messages.appendChild(item);
+  window.scrollTo(0, document.body.scrollHeight);
+});
 
 // constants and variables
 const TYPES = [
