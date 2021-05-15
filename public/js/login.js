@@ -21,10 +21,12 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-        document.location.replace('/menu');
+      document.location.replace('/menu');
     } else {
         alert('Failed to log in.');
     }
+    console.log(response);
+    //document.location.replace('/menu');
   }
 };
 
@@ -51,6 +53,7 @@ const signupFormHandler = async (event) => {
 };
 
 // When the login button is clicked, the following code is executed
+
 loginButton.addEventListener('click', (e) => {
   // Prevent the default submission of the form
   e.preventDefault();
@@ -84,3 +87,4 @@ SignupButton.addEventListener('click', (e) => {
     loginErrorMsg.style.opacity = 1;
   }
 });
+
