@@ -8,6 +8,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    text-decoration: none;
   }
 
 /* UNIVERSAL TAGS */
@@ -818,4 +819,35 @@ button a {
   }
   #messages > li:nth-child(odd) {
     background: #efefef;
-  }  
+  } 
+  
+  /* GAME STYLES */
+
+  .gameContainer {
+    background-color: rgb(255,255,255);
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .center {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+  }
+
+  .start-button {
+    color: white;
+    font-size: 14px;
+    padding: 13px;
+    border-radius: 7px;
+    border: none;
+    width: 250px;
+    outline: none;
+    background-color:rgb(255, 0, 0);
+    margin: .5rem;
+  }
+
+  .large-font {
+    font-size: xx-large;
+  }
