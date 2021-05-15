@@ -27,6 +27,7 @@ router.put('/:id', withAuth, async (req, res) => {
 });
 
 router.post('/', withAuth, async (req, res) => {
+  console.log(req.body);
   try {
     const newPokemon = await Pokemon.create({
       ...req.body,

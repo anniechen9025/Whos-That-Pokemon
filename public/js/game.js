@@ -75,15 +75,12 @@ function startGame() {
 }
 
 // function to post caughtPokemon to DB
-const updatePokemon = async (event) => {
-  event.preventDefault();
-  const index_number = 0;
-  const pokemon_name = 0;
-
-  if (index_number && pokemon_name) {
+const updatePokemon = async (pokemon_name) => {
+  if (pokemon_name) {
+    console.log(pokemon_name);
     const response = await fetch('/api/pokedex/', {
       method: 'POST',
-      body: JSON.stringify({ index_number, pokemon_name }),
+      body: JSON.stringify({ pokemon_name }),
       headers: { 'Content-Type': 'application/json' },
     });
   }
@@ -147,6 +144,7 @@ function setWins() {
   localStorage.setItem('winCount', winCounter);
   caughtPokemon.push(chosenWord);
   console.log(caughtPokemon);
+  updatePokemon(chosenWord);
 }
 
 // These functions are used by init

@@ -13,10 +13,10 @@ Pokemon.init(
     },
     index_number: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       validate: {
-        isNumeric: true
-      }
+        isNumeric: true,
+      },
     },
     pokemon_name: {
       type: DataTypes.STRING,
@@ -24,14 +24,14 @@ Pokemon.init(
     },
     pokemon_type: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     generation: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       validate: {
-        isNumeric: true
-      }
+        isNumeric: true,
+      },
     },
     user_id: {
       type: DataTypes.INTEGER,
