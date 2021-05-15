@@ -83,6 +83,11 @@ const updatePokemon = async (pokemon_name) => {
       body: JSON.stringify({ pokemon_name }),
       headers: { 'Content-Type': 'application/json' },
     });
+    if(response.ok){
+      return
+    }else{
+      alert('Failed to post pokemon.');
+    }
   }
 };
 

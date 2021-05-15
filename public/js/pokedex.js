@@ -73,6 +73,11 @@ const getPokemon = async () => {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },
   });
+  if(response.ok){
+    return
+  }else{
+    alert('Failed to get pokemon.');
+  }
 };
 
 const fetchPokeList = (url) => {
