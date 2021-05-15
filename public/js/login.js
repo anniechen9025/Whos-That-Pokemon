@@ -15,7 +15,6 @@ const loginFormHandler = async (event) => {
       body: JSON.stringify({ name, password }),
       headers: { 'Content-Type': 'application/json' },
     });
-    document.location.replace('/menu');
 
     if (response.ok) {
         document.location.replace('/menu');
