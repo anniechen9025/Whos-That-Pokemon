@@ -851,3 +851,18 @@ button a {
   .large-font {
     font-size: xx-large;
   }
+
+
+  /* MENU CSS */
+
+  .update-button {
+    color: white;
+    font-size: 14px;
+    padding: 13px;
+    border-radius: 7px;
+    border: none;
+    width: 250px;
+    outline: none;
+    background-color:rgb(255, 0, 0);
+    margin: .5rem;
+  }
