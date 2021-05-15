@@ -6,24 +6,22 @@ const loginFormHandler = async (event) => {
   event.preventDefault();
 
   // Collect values from the login form
-  const username = loginForm.username.value.trim();
+  const name = loginForm.username.value.trim();
   const password = loginForm.password.value.trim();
 
-  if (username && password) {
+  if (name && password) {
     const response = await fetch('/api/users/login', {
       method: 'POST',
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify({ name, password }),
       headers: { 'Content-Type': 'application/json' },
     });
-    // document.location.replace('/');
 
-    // if (response.ok) {
-    //     document.location.replace('/homepage');
-    // } else {
-    //     alert(response.statusText);
-    // }
+    if (response.ok) {
+        document.location.replace('/menu');
+    } else {
+        alert(response.statusText);
+    }
   }
-  document.location.replace('/menu');
 };
 
 //need to target the signup page
@@ -40,11 +38,14 @@ const signupFormHandler = async (event) => {
       headers: { 'Content-Type': 'application/json' },
     });
 
-    if (response.ok) {
-      //document.location.replace('/homepage');
-    } else {
-      alert(response.statusText);
-    }
+    console.log(response.ok);
+    document.location.replace('/menu');
+
+    // if (response.ok) {
+    //   document.location.replace('/menu');
+    // } else {
+    //   alert(response.statusText);
+    // }
   }
 };
 
