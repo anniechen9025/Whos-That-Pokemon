@@ -21,7 +21,15 @@ router.get('/login', async (req, res) => {
   }
 });
 
-router.get('/game', withAuth, async (req, res) => {
+router.get('/update', async (req, res) => {
+  try {
+    res.status(200).render('update');
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+router.get('/game', async (req, res) => {
   try {
     res.status(200).render('game');
   } catch (err) {
@@ -39,7 +47,6 @@ router.get('/pokedex', withAuth, async (req, res) => {
 
 router.get('/scores', withAuth, async (req, res) => {
   try {
-    //move fetch for pokeapi here here??
     res.status(200).render('scores');
   } catch (err) {
     res.status(400).json(err);
