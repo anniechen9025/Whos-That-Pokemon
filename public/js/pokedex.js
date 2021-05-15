@@ -15,18 +15,16 @@ const rightButton = document.querySelector('.right-button');
 var messages = document.getElementById('messages');
 var form = document.getElementById('form');
 var input = document.getElementById('input');
-// fetch user name when going to the main page, but append it after the message gets return 
+// fetch user name when going to the main page, but append it after the message gets return
 
-
-form.addEventListener('submit', function (e) {
+/*form.addEventListener('submit', function (e) {
   e.preventDefault();
   if (input.value) {
     // Sends message (if message exists) to the server
     socket.emit('chat message', input.value);
     input.value = '';
   }
-});
-
+});*/
 
 socket.on('chat message', function (msg) {
   var item = document.createElement('li');
@@ -67,6 +65,14 @@ const resetScreen = () => {
   for (const type of TYPES) {
     mainScreen.classList.remove(type);
   }
+};
+
+// function to post caughtPokemon to DB
+const getPokemon = async () => {
+  const response = await fetch('/api/pokedex/', {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+  });
 };
 
 const fetchPokeList = (url) => {

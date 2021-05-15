@@ -4,6 +4,11 @@ const withAuth = require('../../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
   try {
+    const newPokemon = Pokemon.findAll({
+      where: {
+        user_id: req.session.user_id,
+      },
+    });
     res.status(200).json(newPokemon);
   } catch (err) {
     res.status(400).json(err);
