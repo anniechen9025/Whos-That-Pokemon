@@ -46,6 +46,14 @@ const resetScreen = () => {
   }
 };
 
+// function to post caughtPokemon to DB
+const getPokemon = async () => {
+  const response = await fetch('/api/pokedex/', {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+  });
+};
+
 const fetchPokeList = (url) => {
   fetch(url)
     .then((res) => res.json())

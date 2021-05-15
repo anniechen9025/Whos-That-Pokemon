@@ -1,56 +1,29 @@
 [
     {
-        "index_number": "001",
-        "pokemon_name": "Bulbasaur",
-        "pokemon_type": "Grass/Poison",
-        "generation": 1
+        "pokemon_name": "Bulbasaur"
     },
     {
-        "index_number": "002",
-        "pokemon_name": "Ivysaur",
-        "pokemon_type": "Grass/Poison",
-        "generation": 1
+        "pokemon_name": "Ivysaur"
     },
     {
-        "index_number": "003",
-        "pokemon_name": "Venusaur",
-        "pokemon_type": "Grass/Poison",
-        "generation": 1
+        "pokemon_name": "Venusaur"
     },
     {
-        "index_number": "004",
-        "pokemon_name": "Charmander",
-        "pokemon_type": "Fire",
-        "generation": 1
+        "pokemon_name": "Charmander"
     },
     {
-        "index_number": "005",
-        "pokemon_name": "Charmeleon",
-        "pokemon_type": "Fire",
-        "generation": 1
+        "pokemon_name": "Charmeleon"
     },
     {
-        "index_number": "006",
-        "pokemon_name": "Charizard",
-        "pokemon_type": "Fire/Flying",
-        "generation": 1
+        "pokemon_name": "Charizard"
     },
     {
-        "index_number": "007",
-        "pokemon_name": "Squirtle",
-        "pokemon_type": "Water",
-        "generation": 1
+        "pokemon_name": "Squirtle"
     },
     {
-        "index_number": "008",
-        "pokemon_name": "Wartortle",
-        "pokemon_type": "Water",
-        "generation": 1
+        "pokemon_name": "Wartortle"
     },
     {
-        "index_number": "009",
-        "pokemon_name": "Blastoise",
-        "pokemon_type": "Water",
-        "generation": 1
+        "pokemon_name": "Blastoise"
     }
 ]

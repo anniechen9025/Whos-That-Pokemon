@@ -5,37 +5,38 @@
   <div class="container">
     <!--Data or Content-->
     <div class="box-1">
-        <div class="content-holder">
-            <img src="../images/Oak.png" class="oak" />
-            <p>My name is Oak! This world is inhabited by creatures called Pokémon!  </p>
-            <button class="button-1" onclick="signup()">Sign up</button>
-            <button class="button-2" onclick="login()">Login</button>
+      <div class="content-holder">
+        <img src="../images/Oak.png" class="oak" />
+        <p>My name is Oak! This world is inhabited by creatures called Pokémon! </p>
+        <button class="button-1" onclick="signup()">Sign up</button>
+        <button class="button-2" onclick="login()">Login</button>
       </div>
     </div>
 
-    
+
     <!--Forms-->
     <div class="box-2">
-        <form id="login-form" class="login-form-container">
-            <h1>Welcome Back Trainer!</h1>
-            <input type="text" name="username" placeholder="Username" class="input-field">
-            <br><br>
-            <input type="password" name="password" placeholder="Password" class="input-field">
-            <br><br>
-            <button class="login-button" type="button" id="login-form-submit">Login</button>
+      <form id="login-form" class="login-form-container">
+        <h1>Welcome Back Trainer!</h1>
+        <input type="text" name="username" placeholder="Username" class="input-field">
+        <br><br>
+        <input type="password" name="password" placeholder="Password" class="input-field">
+        <br><br>
+        <button class="login-button" type="button" id="login-form-submit">Login</button>
+      </form>
+      <p><a href="/update">Change Password</a></p>
+
+
+      <!--Create Container for Signup form-->
+      <div>
+        <form id="signup-form"class="signup-form-container">
+          <h1>Create Your Pokédex</h1>
+          <input type="text" name="username" placeholder="Username" class="input-field">
+          <br><br>
+          <input type="password" name="password" placeholder="Password" class="input-field">
+          <br><br>
+          <button class="signup-button" type="button" id="signup-form-submit">Sign Up</button>
         </form>
-        <p><a href="/update">Change Password</a></p>
-
-
-<!--Create Container for Signup form-->
-    <div class="signup-form-container">
-        <h1>Create Your Pokédex</h1>
-        <input type="text" placeholder="Username" class="input-field">
-        <br><br>
-        <input type="password" placeholder="Password" class="input-field">
-        <br><br>
-        <button class="signup-button" type="button">Sign Up</button>
+      </div>
     </div>
-
   </div>
-</div>

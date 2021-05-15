@@ -11,27 +11,9 @@ Pokemon.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    index_number: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        isNumeric: true
-      }
-    },
     pokemon_name: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    pokemon_type: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    generation: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        isNumeric: true
-      }
     },
     user_id: {
       type: DataTypes.INTEGER,
