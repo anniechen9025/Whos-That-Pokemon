@@ -46,11 +46,13 @@ sequelize.sync({ force: false }).then(() => {
   io.on('connection', (socket) => {
     console.log('User connected')
 
+    // Think about this as an event listener
     socket.on('chat message', (data)=>{
       console.log(data);
+      // Sends the message to the client
+      io.emit('chat message', data);
     })
 
-    io.emit('some event', { someProperty: 'some value', otherProperty: 'other value' });
 
     io.on('connection', (socket) => {
       socket.broadcast.emit('hi');
