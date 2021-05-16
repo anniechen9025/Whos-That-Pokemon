@@ -34,9 +34,7 @@ const fetchPokeList = (url) => {
         const urlArray = pokeUrl.split('/');
         const pokemonId = urlArray[urlArray.length - 2];
         console.log(pokemonId);
-        if (resultData) {
-          pokemonList.push(pokemonName, pokemonId);
-        }
+        pokemonList.push(pokemonName, pokemonId);
       }
     });
 };
