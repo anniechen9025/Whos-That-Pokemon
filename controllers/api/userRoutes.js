@@ -17,7 +17,6 @@ router.post('/', async (req, res) => {
 });
 
 router.post('/login', async (req, res) => {
-  // console.log(req.body);
   try {
     const userData = await User.findOne({ where: { name: req.body.name } });
 
@@ -36,7 +35,6 @@ router.post('/login', async (req, res) => {
         .json({ message: 'Incorrect email or password, please try again' });
       return;
     }
-
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
@@ -44,6 +42,38 @@ router.post('/login', async (req, res) => {
       res.json({ user: userData, message: 'You are now logged in!' });
     });
 
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+router.put('/pw', async (req, res) => {
+  console.log(req.body.password);
+  // const hashpassword = await User.beforeUpdate(req.body.password);
+  // console.log(hashpassword);
+  try {
+    const newPassword = await User.update(
+      req.body.password,
+    {
+      where: {
+        id: req.session.user_id,
+      },
+      individualHooks:true,
+    })
+    // if (!newPassword) {
+    //   res
+    //     .status(400)
+    //     .json({ message: 'Invalid password' });
+    //   return;
+    // }
+    // req.session.save(() => {
+    //   req.session.user_id = userData.id;
+    //   req.session.logged_in = true;
+      
+    //   res.json({ user: userData, message: 'You are now logged in!' });
+    // });
+    console.log(newPassword);
+    res.status(200).json(newPassword);
   } catch (err) {
     res.status(400).json(err);
   }
