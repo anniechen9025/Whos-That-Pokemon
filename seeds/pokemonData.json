@@ -1,29 +1,38 @@
 [
     {
-        "pokemon_name": "Bulbasaur"
+        "pokemon_name": "Bulbasaur",
+        "pokemon_id": "04"
     },
     {
-        "pokemon_name": "Ivysaur"
+        "pokemon_name": "Ivysaur",
+        "pokemon_id": "04"
     },
     {
-        "pokemon_name": "Venusaur"
+        "pokemon_name": "Venusaur",
+        "pokemon_id": "04"
     },
     {
-        "pokemon_name": "Charmander"
+        "pokemon_name": "Charmander",
+        "pokemon_id": "04"
     },
     {
-        "pokemon_name": "Charmeleon"
+        "pokemon_name": "Charmeleon",
+        "pokemon_id": "04"
     },
     {
-        "pokemon_name": "Charizard"
+        "pokemon_name": "Charizard",
+        "pokemon_id": "04"
     },
     {
-        "pokemon_name": "Squirtle"
+        "pokemon_name": "Squirtle",
+        "pokemon_id": "04"
     },
     {
-        "pokemon_name": "Wartortle"
+        "pokemon_name": "Wartortle",
+        "pokemon_id": "04"
     },
     {
-        "pokemon_name": "Blastoise"
+        "pokemon_name": "Blastoise",
+        "pokemon_id": "04"
     }
 ]

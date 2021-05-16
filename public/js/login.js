@@ -21,7 +21,7 @@ const loginFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/menu');
     } else {
-        alert('Failed to log in.');
+      alert('Failed to log in.');
     }
     console.log(response);
     //document.location.replace('/menu');
@@ -85,4 +85,3 @@ SignupButton.addEventListener('click', (e) => {
     loginErrorMsg.style.opacity = 1;
   }
 });
-

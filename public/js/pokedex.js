@@ -35,6 +35,7 @@ const TYPES = [
 ];
 let prevUrl = null;
 let nextUrl = null;
+let currentPokemon = [];
 
 // Functions
 const capitalize = (str) => str[0].toUpperCase() + str.substr(1);
@@ -46,38 +47,21 @@ const resetScreen = () => {
   }
 };
 
-// function to post caughtPokemon to DB
+// function to get caughtPokemon from DB
 const getPokemon = async () => {
   const response = await fetch('/api/pokedex/', {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },
   });
+  const data = await response.json();
+  console.log(data);
+  for (let i = 0; i < data.length; i++) {
+    let pokemon = data[i].pokemon_name;
+    let id = data[i].pokemon_id;
+    currentPokemon.push(pokemon);
 };
 
-const fetchPokeList = (url) => {
-  fetch(url)
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
-      const { results, previous, next } = data;
-      prevUrl = previous;
-      nextUrl = next;
-
-      for (let i = 0; i < pokeListItems.length; i++) {
-        const pokeListItem = pokeListItems[i];
-        const resultData = results[i];
-
-        if (resultData) {
-          const { name, url } = resultData;
-          const urlArray = url.split('/');
-          const id = urlArray[urlArray.length - 2];
-          pokeListItem.textContent = id + '. ' + capitalize(name);
-        } else {
-          pokeListItem.textContent = '';
-        }
-      }
-    });
-};
+getPokemon();
 
 const fetchPokeData = (id) => {
   fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
@@ -134,7 +118,4 @@ leftButton.addEventListener('click', handleLeftButtonClick);
 rightButton.addEventListener('click', handleRightButtonClick);
 for (const pokeListItem of pokeListItems) {
   pokeListItem.addEventListener('click', handleListItemClick);
-}
-
-// initialize App
-fetchPokeList('https://pokeapi.co/api/v2/pokemon?offset=0&limit=20');
+};
