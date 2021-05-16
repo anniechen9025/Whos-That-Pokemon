@@ -73,9 +73,9 @@ const getPokemon = async () => {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },
   });
-  if(response.ok){
+  if (response.ok) {
     return
-  }else{
+  } else {
     alert('Failed to get pokemon.');
   }
 };
@@ -164,3 +164,24 @@ for (const pokeListItem of pokeListItems) {
 
 // initialize App
 fetchPokeList('https://pokeapi.co/api/v2/pokemon?offset=0&limit=20');
+
+
+const deleteFormHandler = async (event) => {
+  event.preventDefault();
+  const response = await fetch('/api/pokedex/delete', {
+    method: 'DELETE',
+  });
+
+  if (response.ok) {
+    alert('You have successfully reset your pokedex');
+  } else {
+    alert('Failed to reset');
+  }
+
+};
+
+resetButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  updateFormHandler(e);
+});
+

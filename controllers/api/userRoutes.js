@@ -60,18 +60,6 @@ router.put('/pw', async (req, res) => {
       },
       individualHooks:true,
     })
-    // if (!newPassword) {
-    //   res
-    //     .status(400)
-    //     .json({ message: 'Invalid password' });
-    //   return;
-    // }
-    // req.session.save(() => {
-    //   req.session.user_id = userData.id;
-    //   req.session.logged_in = true;
-      
-    //   res.json({ user: userData, message: 'You are now logged in!' });
-    // });
     console.log(newPassword);
     res.status(200).json(newPassword);
   } catch (err) {
