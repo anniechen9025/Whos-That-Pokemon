@@ -16,21 +16,6 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-router.get('/:id', withAuth, async (req, res) => {
-  try {
-    res.status(200).json(newPokemon);
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
-
-router.put('/:id', withAuth, async (req, res) => {
-  try {
-    res.status(200).json(newPokemon);
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
 
 router.post('/', withAuth, async (req, res) => {
   console.log(req.body);
@@ -46,17 +31,16 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/delete', withAuth, async (req, res) => {
   try {
     const pokemonData = await Pokemon.destroy({
       where: {
-        id: req.params.id,
         user_id: req.session.user_id,
       },
     });
 
     if (!pokemonData) {
-      res.status(404).json({ message: 'No project found with this id!' });
+      res.status(404).json({ message: 'You havent catch any Pokemon!' });
       return;
     }
 

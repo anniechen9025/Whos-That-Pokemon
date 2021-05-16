@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const withAuth = require('../utils/auth');
+const User = require('../models/user');
 
 router.get('/', async (req, res) => {
   try {
@@ -21,7 +22,7 @@ router.get('/login', async (req, res) => {
   }
 });
 
-router.get('/update', async (req, res) => {
+router.get('/update', withAuth, async (req, res) => {
   try {
     res.status(200).render('update');
   } catch (err) {
@@ -29,7 +30,7 @@ router.get('/update', async (req, res) => {
   }
 });
 
-router.get('/game', async (req, res) => {
+router.get('/game', withAuth, async (req, res) => {
   try {
     res.status(200).render('game');
   } catch (err) {
@@ -63,11 +64,21 @@ router.get('/menu', withAuth, async (req, res) => {
 
 router.get('/chatbox', withAuth, async (req, res) => {
   try {
+    console.log(req.session.user_id);
     //move fetch for pokeapi here here??
-    res.status(200).render('chatbox');
+    const grabUser = await User.findOne({
+      where: {
+        id: req.session.user_id
+      }
+    })
+    // console.log('Get user name', grabUser);
+    const renderUser = grabUser.get({
+      plain: true
+    })
+    // console.log(JSON.parse(renderUser));
+    res.status(200).render('chatbox', renderUser);
   } catch (err) {
     res.status(400).json(err);
   }
 });
-
 module.exports = router;

@@ -1,6 +1,3 @@
-<script defer src="/js/login.js"></script>
-<script src="/js/signup-login.js"></script>
-
 <div class="loginBackground">
   <div class="container">
     <!--Data or Content-->
@@ -18,13 +15,13 @@
     <div class="box-2">
       <form id="login-form" class="login-form-container">
         <h1>Welcome Back Trainer!</h1>
-        <input type="text" name="username" placeholder="Username" class="input-field">
+        <input type="text" id="username" name="username" placeholder="Username" class="input-field">
         <br><br>
         <input type="password" name="password" placeholder="Password" class="input-field">
         <br><br>
         <button class="login-button" type="button" id="login-form-submit">Login</button>
       </form>
-      <p><a href="/update">Change Password</a></p>
+      {{!-- <p><a href="/update">Change Password</a></p> --}}
 
 
       <!--Create Container for Signup form-->
@@ -40,3 +37,5 @@
       </div>
     </div>
   </div>
+
+<script src="/js/signup-login.js"></script>
