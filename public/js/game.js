@@ -27,30 +27,15 @@ const fetchPokeList = (url) => {
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
+      console.log(data);
       for (let i = 0; i < data.pokemon_species.length; i++) {
-        console.log(data);
         let pokemonName = data.pokemon_species[i].name;
-        pokemonList.push(pokemonName);
-      }
-      console.log(pokemonList);
-      const { results, previous, next } = data;
-      prevUrl = previous;
-      nextUrl = next;
-
-      for (let i = 0; i < pokeListItems.length; i++) {
-        const pokeListItem = pokeListItems[i];
-        const resultData = results[i];
-        console.log(resultData[2]);
-
+        const pokeUrl = data.pokemon_species[i].url;
+        const urlArray = pokeUrl.split('/');
+        const pokemonId = urlArray[urlArray.length - 2];
+        console.log(pokemonId);
         if (resultData) {
-          const { name, url } = resultData;
-          const urlArray = url.split('/');
-          console.log(urlArray);
-          const id = urlArray[urlArray.length - 2];
-          console.log(id);
-          pokeListItem.textContent = id + '. ' + capitalize(name);
-        } else {
-          pokeListItem.textContent = '';
+          pokemonList.push(pokemonName, pokemonId);
         }
       }
     });
@@ -217,13 +202,3 @@ startButton.addEventListener('click', startGame);
 
 // Calls init() so that it fires when page opened
 init();
-
-// Bonus: Add reset button
-var resetButton = document.querySelector('.reset-button');
-
-function resetGame() {
-  // Resets win counts
-  winCounter = 0;
-  // Renders win and loss counts and sets them into client storage
-  setWins();
-}

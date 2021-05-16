@@ -6,7 +6,7 @@ router.get('/', withAuth, async (req, res) => {
   try {
     const newPokemon = await Pokemon.findAll({
       where: {
-        user_id: req.session.user_id
+        user_id: req.session.user_id,
       },
     });
     console.log(newPokemon);
