@@ -140,5 +140,5 @@ const deleteFormHandler = async (event) => {
 
 resetButton.addEventListener('click', (e) => {
   e.preventDefault();
-  updateFormHandler(e);
+  deleteFormHandler(e);
 });
