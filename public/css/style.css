@@ -773,9 +773,8 @@ button a {
 /* CHATBOX CSS */
 
   .chatbox {
-    padding-bottom: 3rem;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
-      Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: white;
   }
   #form {
     background: rgba(0, 0, 0, 0.15);
