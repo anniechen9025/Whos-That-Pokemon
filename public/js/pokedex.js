@@ -59,6 +59,7 @@ const getPokemon = async () => {
     let pokemon = data[i].pokemon_name;
     let id = data[i].pokemon_id;
     currentPokemon.push(pokemon);
+  }
 };
 
 getPokemon();
@@ -123,7 +124,6 @@ for (const pokeListItem of pokeListItems) {
 // initialize App
 fetchPokeList('https://pokeapi.co/api/v2/pokemon?offset=0&limit=20');
 
-
 const deleteFormHandler = async (event) => {
   event.preventDefault();
   const response = await fetch('/api/pokedex/delete', {
@@ -135,7 +135,6 @@ const deleteFormHandler = async (event) => {
   } else {
     alert('Failed to reset');
   }
-
 };
 
 resetButton.addEventListener('click', (e) => {
