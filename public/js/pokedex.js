@@ -118,4 +118,27 @@ leftButton.addEventListener('click', handleLeftButtonClick);
 rightButton.addEventListener('click', handleRightButtonClick);
 for (const pokeListItem of pokeListItems) {
   pokeListItem.addEventListener('click', handleListItemClick);
+}
+
+// initialize App
+fetchPokeList('https://pokeapi.co/api/v2/pokemon?offset=0&limit=20');
+
+
+const deleteFormHandler = async (event) => {
+  event.preventDefault();
+  const response = await fetch('/api/pokedex/delete', {
+    method: 'DELETE',
+  });
+
+  if (response.ok) {
+    alert('You have successfully reset your pokedex');
+  } else {
+    alert('Failed to reset');
+  }
+
 };
+
+resetButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  deleteFormHandler(e);
+});
