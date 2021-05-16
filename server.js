@@ -47,10 +47,10 @@ sequelize.sync({ force: false }).then(() => {
     console.log('User connected')
 
     // Think about this as an event listener
-    socket.on('chat message', (data)=>{
-      console.log(data);
+    socket.on('chat message', (data, user_name) => {
       // Sends the message to the client
-      io.emit('chat message', data);
+      io.emit('chat message', data, user_name)
+
     })
 
     socket.on('disconnect', () => {

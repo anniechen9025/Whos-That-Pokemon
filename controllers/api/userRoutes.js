@@ -5,18 +5,18 @@ const withAuth = require('../../utils/auth')
 router.post('/', async (req, res) => {
   try {
     const userData = await User.create(req.body);
-    
+
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-      
+
       res.status(200).json(userData);
     });
   } catch (err) {
     res.status(400).json(err);
   }
 });
-router.get('/username', withAuth, async (req,res) => {
+router.get('/username', withAuth, async (req, res) => {
   try {
     // Get all the data from User model where id is equal to a number
     const getUserName = await User.findOne(
@@ -26,12 +26,11 @@ router.get('/username', withAuth, async (req,res) => {
         }
       }
     )
-    
+
     // plain gets rid of the unncessary data
     const renderUserName = getUserName.get({
       plain: true
     })
-    console.log(renderUserName)
     res.status(200).json(renderUserName.name)
   } catch (err) {
     res.status(400).json(err)
@@ -62,7 +61,7 @@ router.post('/login', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
-      
+
       res.json({ user: userData, message: 'You are now logged in!' });
     });
 

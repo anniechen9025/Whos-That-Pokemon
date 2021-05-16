@@ -1,5 +1,3 @@
-const { doc } = require("prettier");
-
 const loginForm = document.getElementById('login-form');
 const signupForm = document.getElementById('signup-form');
 const loginButton = document.getElementById('login-form-submit');
