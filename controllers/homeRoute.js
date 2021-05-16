@@ -21,7 +21,7 @@ router.get('/login', async (req, res) => {
   }
 });
 
-router.get('/update', async (req, res) => {
+router.get('/update', withAuth, async (req, res) => {
   try {
     res.status(200).render('update');
   } catch (err) {
@@ -29,7 +29,7 @@ router.get('/update', async (req, res) => {
   }
 });
 
-router.get('/game', async (req, res) => {
+router.get('/game', withAuth, async (req, res) => {
   try {
     res.status(200).render('game');
   } catch (err) {
