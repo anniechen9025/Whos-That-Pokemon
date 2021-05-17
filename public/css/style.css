@@ -888,32 +888,6 @@ button a {
 
   /* MENU CSS */
 
-  /*
-  .navbar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    border:none;
-    font-size: 15px;
-    padding: 10px;
-    border-radius: 6px;
-    width: 500px;
-    height:400px;
-    margin: 20px auto;
-  }
-
-  .menu-button {
-    color: white;
-    font-size: 14px;
-    padding: 13px;
-    border-radius: 7px;
-    border: none;
-    background-color:rgb(41, 114, 57);
-    margin: .5rem;
-  }
-  */
-
   .navbar {
     overflow: hidden;
     background-color: black;
@@ -971,4 +945,10 @@ button a {
 
   .dropdown:hover .dropdown-content {
     display: block;
+  }
+
+  .gamenavbar {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
   }
