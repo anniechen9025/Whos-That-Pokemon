@@ -774,6 +774,13 @@ button a {
 
 /* CHATBOX CSS */
 
+  .positionContainer{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
   .chatbox {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     background-color: white;
@@ -891,6 +898,7 @@ button a {
   .navbar {
     overflow: hidden;
     background-color: black;
+    position:fixed;
   }
 
   .navbar a {
