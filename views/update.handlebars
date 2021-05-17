@@ -1,28 +1,39 @@
+<!-- Navbar -->
+<div class="gamenavbar">
+  <div class="navbar">
+    <a href="/game" class="menu-button">Play Game</a>
+    <a href="/pokedex" class="menu-button">Pokedéx</a>
+    <a href="/chatbox" class="menu-button">Chat With Trainers</a>
+        <a href="#" id="logout" class="menu-button">Logout</a>
+  </div>
+</div>
+
 <div class="loginBackground">
   <div class="container">
     <!--Data or Content-->
     <div class="box-1">
-        <div class="content-holder">
-            <img src="../images/Oak.png" class="oak" />
-            <p>My name is Oak! This world is inhabited by creatures called Pokémon!  </p>
+      <div class="content-holder">
+        <img src="../images/Oak.png" class="oak" />
+        <p>My name is Oak! This world is inhabited by creatures called Pokémon! </p>
       </div>
     </div>
 
     <!--Forms-->
     <div class="box-2">
-        <form id="updatePW-form" class="login-form-container">
-            <h1>Welcome back Trainer!</h1>
-            <input type="text" id = "username" name="username" placeholder="Username" class="input-field">
-            <br><br>
-            <input type="password" id="oldPw" name="oldPw" placeholder="Old Password" class="input-field">
-            <br><br>
-            <input type="password" id="newPw" name="newPw" placeholder="New Password" class="input-field">
-            <br><br>
-            <button class="update-button" type="button" id="updateBtn">Change Password</button>
-            <p><a href="/menu">Home</a></p>
-        </form>
+      <form id="updatePW-form" class="login-form-container">
+        <h1>Welcome back Trainer!</h1>
+        <input type="text" id="username" name="username" placeholder="Username" class="input-field">
+        <br><br>
+        <input type="password" id="oldPw" name="oldPw" placeholder="Old Password" class="input-field">
+        <br><br>
+        <input type="password" id="newPw" name="newPw" placeholder="New Password" class="input-field">
+        <br><br>
+        <button class="update-button" type="button" id="updateBtn">Change Password</button>
+        <p><a href="/menu">Home</a></p>
+      </form>
 
+    </div>
   </div>
-</div>
 
-<script src="/js/update.js"></script>
+  <script defer src="/js/logout.js"></script>
+  <script src="/js/update.js"></script>
