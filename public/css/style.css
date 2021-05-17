@@ -888,7 +888,8 @@ button a {
 
   /* MENU CSS */
 
-  .menuContainer {
+  /*
+  .navbar {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -910,4 +911,38 @@ button a {
     border: none;
     background-color:rgb(41, 114, 57);
     margin: .5rem;
+  }
+  */
+
+  .navbar {
+    overflow: hidden;
+    background-color: black;
+  }
+
+  .navbar a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  .dropdown {
+    float: left;
+    overflow: hidden;
+  }
+
+  .dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: black;
+    margin: 0;
+  }
+
+  .navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: rgb(255, 0, 0);
   }
