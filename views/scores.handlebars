@@ -1,3 +1,14 @@
-<p>There Will be a list of Scores here?</p>
+<div id="chatbox-header">
+    <p>Chat with other users playing the game now</p>
+    <p><a href="/menu">Return to Menu</a></p>
+</div>
 
-<p><a href="/menu">Return to Menu</a></p>
+
+
+<div class="chatbox">
+<ul id="messages"></ul>
+<form id="form" action="">
+    <input id="input" autocomplete="off" placeholder=""/><button>Send</button>
+    {{renderUser.name}}
+</form>
+</div>
