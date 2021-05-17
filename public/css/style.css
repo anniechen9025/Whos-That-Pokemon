@@ -300,7 +300,7 @@ button a {
 
 .login-button {
     box-sizing: border-box;
-    color: white;
+    color: black;
     font-size: 14px;
     padding: 13px;
     border-radius: 7px;
@@ -310,16 +310,20 @@ button a {
     background-color: rgb(255, 0, 0);
 }
 
-.button-2 {
-    display: none;
+.button-1 {
+  color: black;
 }
 
+.button-2 {
+    color: black;
+    display: none;
+}
 
 .signup-form-container {
     position: relative;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-60%);
+    transform: translate(-50%, 50%);
     text-align: center;
     display: none;
 }
@@ -332,7 +336,7 @@ button a {
 
 .signup-button {
     box-sizing: border-box;
-    color: white;
+    color: black;
     font-size: 14px;
     padding: 13px;
     border-radius: 7px;
