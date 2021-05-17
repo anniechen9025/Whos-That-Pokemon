@@ -30,11 +30,7 @@ const fetchPokeList = (url) => {
       console.log(data);
       for (let i = 0; i < data.pokemon_species.length; i++) {
         let pokemonName = data.pokemon_species[i].name;
-        const pokeUrl = data.pokemon_species[i].url;
-        const urlArray = pokeUrl.split('/');
-        const pokemonId = urlArray[urlArray.length - 2];
-        console.log(pokemonId);
-        pokemonList.push(pokemonName, pokemonId);
+        pokemonList.push(pokemonName);
       }
     });
 };
@@ -66,9 +62,9 @@ const updatePokemon = async (pokemon_name) => {
       body: JSON.stringify({ pokemon_name }),
       headers: { 'Content-Type': 'application/json' },
     });
-    if(response.ok){
-      return
-    }else{
+    if (response.ok) {
+      return;
+    } else {
       alert('Failed to post pokemon.');
     }
   }

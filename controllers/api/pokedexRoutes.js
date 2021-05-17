@@ -16,7 +16,6 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-
 router.post('/', withAuth, async (req, res) => {
   console.log(req.body);
   try {
@@ -40,7 +39,7 @@ router.delete('/delete', withAuth, async (req, res) => {
     });
 
     if (!pokemonData) {
-      res.status(404).json({ message: 'You havent catch any Pokemon!' });
+      res.status(404).json({ message: 'You havent caught any Pokemon!' });
       return;
     }
 

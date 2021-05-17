@@ -65,16 +65,15 @@ router.get('/menu', withAuth, async (req, res) => {
 router.get('/chatbox', withAuth, async (req, res) => {
   try {
     console.log(req.session.user_id);
-    //move fetch for pokeapi here here??
     const grabUser = await User.findOne({
       where: {
-        id: req.session.user_id
-      }
-    })
+        id: req.session.user_id,
+      },
+    });
     // console.log('Get user name', grabUser);
     const renderUser = grabUser.get({
-      plain: true
-    })
+      plain: true,
+    });
     // console.log(JSON.parse(renderUser));
     res.status(200).render('chatbox', renderUser);
   } catch (err) {
