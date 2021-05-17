@@ -4,6 +4,7 @@ const lose = document.querySelector('.lose');
 const timerElement = document.querySelector('.timer-count');
 const startButton = document.querySelector('.start-button');
 const pokeListItems = document.querySelectorAll('.list-item');
+const pokemonPic = document.querySelector('.pokemonPic');
 
 let chosenWord = '';
 let numBlanks = 0;
@@ -19,22 +20,19 @@ let blanksLetters = [];
 
 // Array of words the user will guess
 const pokemonList = [];
-// Array for list of pokemon User has guessed correctly
-const caughtPokemon = [];
 
 // fetching 3rd party API
 const fetchPokeList = (url) => {
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
       for (let i = 0; i < data.pokemon_species.length; i++) {
-        let pokemonName = data.pokemon_species[i].name;
-        const pokeUrl = data.pokemon_species[i].url;
-        const urlArray = pokeUrl.split('/');
-        const pokemonId = urlArray[urlArray.length - 2];
-        console.log(pokemonId);
-        pokemonList.push(pokemonName, pokemonId);
+        // let pokemonName = data.pokemon_species[i].name;
+        let myPokemon = {
+          name: data.pokemon_species[i].name,
+          url: data.pokemon_species[i].url,
+        };
+        pokemonList.push(myPokemon);
       }
     });
 };
@@ -55,6 +53,7 @@ function startGame() {
   startButton.disabled = true;
   renderBlanks();
   startTimer();
+  pokemonPic.innerHTML = '';
 }
 
 // function to post caughtPokemon to DB
@@ -66,9 +65,9 @@ const updatePokemon = async (pokemon_name) => {
       body: JSON.stringify({ pokemon_name }),
       headers: { 'Content-Type': 'application/json' },
     });
-    if(response.ok){
-      return
-    }else{
+    if (response.ok) {
+      return;
+    } else {
       alert('Failed to post pokemon.');
     }
   }
@@ -114,7 +113,18 @@ function startTimer() {
 // Creates blanks on screen
 function renderBlanks() {
   // Randomly picks word from words array
-  chosenWord = pokemonList[Math.floor(Math.random() * pokemonList.length)];
+  chooseRandom = pokemonList[Math.floor(Math.random() * pokemonList.length)];
+  console.log(chooseRandom);
+  chosenWord = chooseRandom.name;
+  const fetchPic = () => {
+    fetch(`https://pokeapi.co/api/v2/pokemon/${chosenWord}`)
+      .then((res) => res.json())
+      .then((data) => {
+        const pic = document.createElement('img');
+        pic.setAttribute('src', data.sprites.front_default);
+        pokemonPic.appendChild(pic);
+      });
+  };
   lettersInChosenWord = chosenWord.split('');
   numBlanks = lettersInChosenWord.length;
   blanksLetters = [];
@@ -124,14 +134,13 @@ function renderBlanks() {
   }
   // Converts blankLetters array into a string and renders it on the screen
   wordBlank.textContent = blanksLetters.join(' ');
+  fetchPic();
 }
 
 // Updates win count on screen and sets win count to client storage
 function setWins() {
   win.textContent = winCounter;
   localStorage.setItem('winCount', winCounter);
-  caughtPokemon.push(chosenWord);
-  console.log(caughtPokemon);
   updatePokemon(chosenWord);
 }
 
@@ -184,7 +193,7 @@ document.addEventListener('keydown', function (event) {
   }
   // Convert all keys to lower case
   var key = event.key.toLowerCase();
-  var alphabetNumericCharacters = 'abcdefghijklmnopqrstuvwxyz0123456789 '.split(
+  var alphabetNumericCharacters = 'abcdefghijklmnopqrstuvwxyz0123456789- '.split(
     ''
   );
   // Test if key pushed is letter

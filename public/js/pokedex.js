@@ -1,5 +1,6 @@
 // DOM Objects
 const mainScreen = document.querySelector('.main-screen');
+const rightScreen = document.querySelector('.right-container__screen');
 const pokeName = document.querySelector('.poke-name');
 const pokeId = document.querySelector('.poke-id');
 const pokeFrontImage = document.querySelector('.poke-front-image');
@@ -8,9 +9,7 @@ const pokeTypeOne = document.querySelector('.poke-type-one');
 const pokeTypeTwo = document.querySelector('.poke-type-two');
 const pokeWeight = document.querySelector('.poke-weight');
 const pokeHeight = document.querySelector('.poke-height');
-const pokeListItems = document.querySelectorAll('.list-item');
-const leftButton = document.querySelector('.left-button');
-const rightButton = document.querySelector('.right-button');
+const resetButton = document.querySelector('.reset-button');
 
 // constants and variables
 const TYPES = [
@@ -35,7 +34,6 @@ const TYPES = [
 ];
 let prevUrl = null;
 let nextUrl = null;
-let currentPokemon = [];
 
 // Functions
 const capitalize = (str) => str[0].toUpperCase() + str.substr(1);
@@ -54,11 +52,14 @@ const getPokemon = async () => {
     headers: { 'Content-Type': 'application/json' },
   });
   const data = await response.json();
-  console.log(data);
   for (let i = 0; i < data.length; i++) {
-    let pokemon = data[i].pokemon_name;
-    let id = data[i].pokemon_id;
-    currentPokemon.push(pokemon);
+    const listItem = document.createElement('div');
+    listItem.innerText = data[i].pokemon_name;
+    listItem.classList.add('list-item');
+    rightScreen.appendChild(listItem);
+    if (listItem) {
+      listItem.addEventListener('click', handleListItemClick);
+    }
   }
 };
 
@@ -92,18 +93,6 @@ const fetchPokeData = (id) => {
     });
 };
 
-const handleLeftButtonClick = () => {
-  if (prevUrl) {
-    fetchPokeList(prevUrl);
-  }
-};
-
-const handleRightButtonClick = () => {
-  if (nextUrl) {
-    fetchPokeList(nextUrl);
-  }
-};
-
 const handleListItemClick = (e) => {
   if (!e.target) return;
 
@@ -114,16 +103,6 @@ const handleListItemClick = (e) => {
   fetchPokeData(id);
 };
 
-// adding event listeners
-leftButton.addEventListener('click', handleLeftButtonClick);
-rightButton.addEventListener('click', handleRightButtonClick);
-for (const pokeListItem of pokeListItems) {
-  pokeListItem.addEventListener('click', handleListItemClick);
-}
-
-// initialize App
-fetchPokeList('https://pokeapi.co/api/v2/pokemon?offset=0&limit=20');
-
 const deleteFormHandler = async (event) => {
   event.preventDefault();
   const response = await fetch('/api/pokedex/delete', {
@@ -131,7 +110,9 @@ const deleteFormHandler = async (event) => {
   });
 
   if (response.ok) {
-    alert('You have successfully reset your pokedex');
+    alert(
+      'You have successfully reset your pokedex. Refresh to see current PokeList'
+    );
   } else {
     alert('Failed to reset');
   }
