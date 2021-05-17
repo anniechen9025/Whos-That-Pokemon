@@ -667,8 +667,7 @@ button a {
     margin-top: 25px;
   }
   
-  .left-button,
-  .right-button {
+  .reset-button {
     align-items: center;
     background: #DEDEDE;
     border-radius: 3px;
@@ -680,7 +679,7 @@ button a {
     height: 30px;
     justify-content: center;
     text-transform: uppercase;
-    width: 100px;
+    width: 300px;
   }
   
   .left-button:hover,
