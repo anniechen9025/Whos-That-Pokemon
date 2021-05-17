@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         socket.on('chat message', function (msg, user_name) {
             const item = document.createElement('li');
-            item.classList.add('chatbox-message');
+            // item.classList.add('chatbox-message');
             item.textContent = `${user_name}:  ${msg}`;
             messages.appendChild(item);
             window.scrollTo(0, document.body.scrollHeight);

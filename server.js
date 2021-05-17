@@ -50,7 +50,6 @@ sequelize.sync({ force: false }).then(() => {
     socket.on('chat message', (data, user_name) => {
       // Sends the message to the client
       io.emit('chat message', data, user_name)
-
     })
 
     socket.on('disconnect', () => {
