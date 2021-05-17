@@ -696,7 +696,6 @@ button a {
     box-shadow: inset 0 0 2px 2px rgba(0,0,0,.3);
   }
   
-  
   .hide {
     display: none;
   }
@@ -778,7 +777,9 @@ button a {
   .chatbox {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     background-color: white;
+    text-align: center;
   }
+
   #form {
     background: rgba(0, 0, 0, 0.15);
     padding: 0.25rem;
@@ -791,6 +792,7 @@ button a {
     box-sizing: border-box;
     backdrop-filter: blur(10px);
   }
+
   #input {
     border: none;
     padding: 0 1rem;
@@ -798,9 +800,11 @@ button a {
     border-radius: 2rem;
     margin: 0.25rem;
   }
+
   #input:focus {
     outline: none;
   }
+
   #form > button {
     background: #333;
     border: none;
@@ -816,12 +820,25 @@ button a {
     margin: 0;
     padding: 0;
   }
+
   #messages > li {
     padding: 0.5rem 1rem;
   }
+
   #messages > li:nth-child(odd) {
     background: #efefef;
   } 
+
+  #chatbox-header {
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+  }
+
+  .chatbox-message {
+    font-size: 25px;
+    text-align: center;
+  }
   
   /* GAME STYLES */
 
