@@ -65,8 +65,10 @@ const updatePokemon = async (pokemon_name) => {
       body: JSON.stringify({ pokemon_name }),
       headers: { 'Content-Type': 'application/json' },
     });
+    console.log(response);
     if (response.ok) {
-      return;
+      document.location.replace('/pokedex');
+      alert('You Catch a Pokemon!!');
     } else {
       alert('Failed to post pokemon.');
     }

@@ -69,9 +69,6 @@ router.post('/login', async (req, res) => {
 });
 
 router.put('/pw', async (req, res) => {
-  console.log(req.body.password);
-  // const hashpassword = await User.beforeUpdate(req.body.password);
-  // console.log(hashpassword);
   try {
     const newPassword = await User.update(
       req.body.password,
@@ -81,7 +78,6 @@ router.put('/pw', async (req, res) => {
       },
       individualHooks:true,
     })
-    console.log(newPassword);
     res.status(200).json(newPassword);
   } catch (err) {
     res.status(400).json(err);
