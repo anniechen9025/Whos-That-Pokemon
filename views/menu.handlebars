@@ -1,19 +1,28 @@
-<div class="menuContainer">
-    <p><a href="/game" class="menu-button">Guess That Pokemon</a></p>
-    <p><a href="/pokedex" class="menu-button">View My Pokemon</a></p>
-    <p><a href="/chatbox" class="menu-button">Chat With other Players</a></p>
-    <p><a href="/update" class="menu-button">Update Password</a></p>
-    <p><a href="#" id="logout" class="menu-button">Log Out</a></p>
-</div>
-<script defer src="/js/logout.js"></script>
-
 <!--
-<div class="container">
-    <div class="topnav">
-        <a href="/game">Play Game</a>
-        <a href="/pokedex">Pokedex</a>
-        <a href="#" id="logout">Logout</a>
+<div class="menuContainer">
+    <div class="navbar">
+        <a href="/game" class="menu-button">Play Game</a>
+        <a href="/pokedex" class="menu-button">Pokedex</a>
+        <a href="/chatbox" class="menu-button">Chat with trainers</a>
+        <a href="/update" class="menu-button">Update Password</a>
+        <a href="#" id="logout" class="menu-button">Logout</a>
     </div>
 </div>
 <script defer src="/js/logout.js"></script>
 -->
+
+<div class="navbar">
+    <a href="/game" class="menu-button">Play Game</a>
+    <a href="/pokedex" class="menu-button">Pokedéx</a>
+    <a href="/chatbox" class="menu-button">Chat With Trainers</a>
+    <div class="dropdown">
+        <button class="dropbtn">Settings
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="/update" class="menu-button">Update Password</a>
+            <a href="#" id="logout" class="menu-button">Logout</a>
+        </div>
+    </div>
+</div>
+<script defer src="/js/logout.js"></script>
