@@ -851,7 +851,7 @@ button a {
   }
 
 
-  /* MENU CSS */
+  /* UPDATE FORM CSS */
 
   .update-button {
     color: white;
@@ -862,5 +862,31 @@ button a {
     width: 250px;
     outline: none;
     background-color:rgb(255, 0, 0);
+    margin: .5rem;
+  }
+
+  /* MENU CSS */
+
+  .menuContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border:none;
+    font-size: 15px;
+    padding: 10px;
+    border-radius: 6px;
+    width: 500px;
+    height:400px;
+    margin: 20px auto;
+  }
+
+  .menu-button {
+    color: white;
+    font-size: 14px;
+    padding: 13px;
+    border-radius: 7px;
+    border: none;
+    background-color:rgb(41, 114, 57);
     margin: .5rem;
   }
