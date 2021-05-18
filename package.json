@@ -1,5 +1,5 @@
 {
-  "name": "project2",
+  "name": "Whos-That-Pokemon",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/anniechen9025/project2.git"
+    "url": "git+https://github.com/anniechen9025/Whos-That-Pokemon.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/anniechen9025/project2/issues"
+    "url": "https://github.com/anniechen9025/Whos-That-Pokemon/issues"
   },
-  "homepage": "https://github.com/anniechen9025/project2#readme",
+  "homepage": "https://github.com/anniechen9025/Whos-That-Pokemon#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "connect-session-sequelize": "^7.1.1",
