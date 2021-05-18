@@ -1,4 +1,4 @@
-const User = require('./User');
+const User = require('./user');
 const Pokemon = require('./Pokemon');
 
 User.hasMany(Pokemon, {
