@@ -1,8 +1,29 @@
-<div class="chatbox">
-<ul id="messages"></ul>
-<form id="form" action="">
-    <input id="input" autocomplete="off" placeholder=""/><button>Send</button>
-</form>
+
+<!-- Navbar -->
+<div class="navbar">
+    <a href="/game" class="menu-button">Play Game</a>
+    <a href="/pokedex" class="menu-button">Pokedéx</a>
+    <a href="/chatbox" class="menu-button">Chat With Trainers</a>
+    <div class="dropdown">
+        <button class="dropbtn">Settings
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <a href="/update" class="menu-button">Update Password</a>
+            <a href="#" id="logout" class="menu-button">Logout</a>
+        </div>
+    </div>
 </div>
-<script src="./js/chatbox.js"></script>
+
+<!-- Chatbox style -->
+    <div class="chatbox">
+        <ul id="messages"></ul>
+            <form id="form" action="">
+            <input id="input" autocomplete="off" placeholder=""/><button>Send</button>
+            {{renderUser.name}}
+            </form>
+    </div>
+
+<script defer src="/js/logout.js"></script>
 <script src="/socket.io/socket.io.js"></script>
+<script src="./js/chatbox.js"></script>

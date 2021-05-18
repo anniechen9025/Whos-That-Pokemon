@@ -1,7 +1,26 @@
+<!-- Navbar -->
+<div class="gamenavbar">
+  <div class="navbar">
+    <a href="/game" class="menu-button">Play Game</a>
+    <a href="/pokedex" class="menu-button">Pokedéx</a>
+    <a href="/chatbox" class="menu-button">Chat With Trainers</a>
+    <div class="dropdown">
+      <button class="dropbtn">Settings
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="/update" class="menu-button">Update Password</a>
+        <a href="#" id="logout" class="menu-button">Logout</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Game style -->
 <div class="loginBackground center">
   <div class="gameContainer">
     <header>
-      <div class= "large-font">Guess That Pokemon!</div>
+      <div class="large-font">Guess That Pokemon!</div>
     </header>
 
     <main>
@@ -15,22 +34,22 @@
 
       <section>
         <div class="card results">
-          <div class = "win-loss-container">
-          <div>
-          <h2>Pokemon Caught: <span class="win">0 </span> </h2>
-        </div>
-      </div>
-          <div class= "card timer">
-            <div class = "timer-text">
-            <div class="large-font timer-count">30</div>
-            <h3>seconds remaining</h3>
+          <div class="win-loss-container">
+            <div>
+              <h2>Pokemon Caught: <span class="win">0 </span> </h2>
+            </div>
           </div>
-        
+          <div class="card timer">
+            <div class="timer-text">
+              <div class="large-font timer-count">30</div>
+              <h3>seconds remaining</h3>
+            </div>
+
           </div>
         </div>
       </section>
-      <p><a href="/menu">Return to Menu</a></p>
     </main>
+    <script defer src="/js/logout.js"></script>
     <script src="/js/game.js"></script>
 
   </div>
