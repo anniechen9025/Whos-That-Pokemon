@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const loginFormHandler = async (event) => {
     event.preventDefault();
 
-    // Collect values from the login form
     const name = loginForm.username.value.trim();
     const password = loginForm.password.value.trim();
 
@@ -26,12 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         alert('Failed to log in.');
       }
-      console.log(response);
-      //document.location.replace('/menu');
     }
   };
 
-  //need to target the signup page
   const signupFormHandler = async (event) => {
     event.preventDefault();
 
@@ -45,8 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
         headers: { 'Content-Type': 'application/json' },
       });
 
-      console.log(response);
-
       if (response.ok) {
         document.location.replace('/menu');
       } else {
@@ -57,37 +51,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-
-  // When the login button is clicked, the following code is executed
-
   loginButton.addEventListener('click', (e) => {
-    // Prevent the default submission of the form
     e.preventDefault();
-    // Get the values input by the user in the form fields
+
     const username = loginForm.username.value;
     const password = loginForm.password.value;
 
     if (username && password) {
-      // If the credentials are valid, show an alert box and reload the page
       loginFormHandler(e);
     } else {
-      // Otherwise, make the login error message show (change its oppacity)
       loginErrorMsg.style.opacity = 1;
     }
   });
 
   signupButton.addEventListener('click', (e) => {
-    // Prevent the default submission of the form
     e.preventDefault();
-    // Get the values input by the user in the form fields
+
     const username = signupForm.username.value;
     const password = signupForm.password.value;
 
     if (username && password) {
-      // If the credentials are valid, show an alert box and reload the page
       signupFormHandler(e);
     } else {
-      // Otherwise, make the login error message show (change its oppacity)
       loginErrorMsg.style.opacity = 1;
     }
   });

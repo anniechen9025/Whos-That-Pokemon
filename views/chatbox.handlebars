@@ -1,3 +1,4 @@
+
 <!-- Navbar -->
 <div class="navbar">
     <a href="/game" class="menu-button">Play Game</a>
@@ -15,12 +16,14 @@
 </div>
 
 <!-- Chatbox style -->
-<div class="chatbox">
-<ul id="messages"></ul>
-<form id="form" action="">
-    <input id="input" autocomplete="off" placeholder=""/><button>Send</button>
-</form>
-</div>
+    <div class="chatbox">
+        <ul id="messages"></ul>
+            <form id="form" action="">
+            <input id="input" autocomplete="off" placeholder=""/><button>Send</button>
+            {{renderUser.name}}
+            </form>
+    </div>
+
 <script defer src="/js/logout.js"></script>
-<script src="./js/chatbox.js"></script>
 <script src="/socket.io/socket.io.js"></script>
+<script src="./js/chatbox.js"></script>
