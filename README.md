@@ -22,7 +22,7 @@ git clone git@github.com:anniechen9025/Whos-That-Pokemon.git
 Run `npm install` in your terminal to install all dependencies. To run the application locally, run `node server.js` in your CLI, and then open `http://localhost:3001` in your preferred browswer. The Who's That Pokémon? app is [live on Heroku](https://whos-the-pokemon.herokuapp.com) for you to use as well.
 
 ## Deployed Link:
-[Note Taker App](https://whos-the-pokemon.herokuapp.com)
+[Who's That Pokemon?](https://whos-the-pokemon.herokuapp.com)
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://whos-the-pokemon.herokuapp.com)
 
